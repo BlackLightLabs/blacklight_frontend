@@ -4,12 +4,12 @@ import HomeScreen from "./screens/HomeScreen";
 import NavBar from "./components/NavBar";
 
 function App() {
-    const color = "blue";
+    const color = "pink";
     return (
         <div className="App">
             <NavBar color={color}/>
             <Background color={color}/>
-            <HomeScreen/>
+            <HomeScreen color={color}/>
         </div>
     );
 }
