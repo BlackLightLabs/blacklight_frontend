@@ -17,7 +17,6 @@ export default function Background({color}) {
 
     useEffect(() => {
         const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 500);
-        let INTERSECTED;
         const maxSize = 0.04; // Change this value to adjust the maximum size
         const canvasElem = canvasRef.current;
 
@@ -237,7 +236,6 @@ export default function Background({color}) {
                 cameraValue = true;
             } else {
                 gsap.to(camera.position, 1, {z: cameraRange, x: 0, y: 0, ease: Power4.easeInOut});
-                INTERSECTED = null;
                 cameraValue = false;
             }
         }
@@ -281,9 +279,7 @@ export default function Background({color}) {
         scene.add(rectLightHelper);
 
         //------------------------------------------------------------- RAYCASTER
-        const raycaster = new THREE.Raycaster();
         let mouse = new THREE.Vector2();
-        let intersected;
 
 
         //------------------------------------------------------------- RENDER
