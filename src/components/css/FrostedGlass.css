@@ -1,0 +1,4 @@
+.chakra-stack.frosted-glass {
+  background: rgba(255, 255, 255, 0.1); /* Adjust the background color and opacity as needed */
+  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+}

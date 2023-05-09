@@ -1,0 +1,35 @@
+.rotating-text {
+    position: relative;
+    height: 1em;
+    overflow: hidden;
+    margin-bottom: -1em;
+}
+
+.rotating-text__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.rotating-text__item--active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+.rotating-text__item--leaving {
+  animation: leaveAnimation 0.5s ease forwards;
+  z-index: 3;
+}
+
+@keyframes leaveAnimation {
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}

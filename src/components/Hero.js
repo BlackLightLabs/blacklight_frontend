@@ -7,6 +7,7 @@ import {
     Center,
 } from '@chakra-ui/react';
 import {useBreakpointValue} from '@chakra-ui/media-query';
+import RotatingText from './RotatingText';
 import {React} from 'react';
 
 export default function Header({color}) {
@@ -21,7 +22,7 @@ export default function Header({color}) {
                 />
             </Heading>
             <Center h={'100vh'}>
-                <Container maxW={isMobile ? '3xl' : '4xl'}  id='hero'>
+                <Container maxW={isMobile ? '3xl' : '4xl'} id='hero'>
                     <Stack
                         as={Box}
                         textAlign={'center'}
@@ -34,9 +35,10 @@ export default function Header({color}) {
                             fontSize={{base: '2xl', sm: '4xl', md: '6xl'}}
                             lineHeight={'110%'}
                         >
-                            <Text as={'span'}>
-                                ETHICAL
-                            </Text>
+                            <RotatingText
+                                words={["AUTOMATED", "ETHICAL", "AFFORDABLE", "DEMOCRATIZED"]}
+                                duration={2000}
+                            />
                             <br/>
                             MACHINE LEARNING <br/>
                             <Text as={'span'} color={`${color}.400`}>

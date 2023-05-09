@@ -8,19 +8,17 @@ import {
     DrawerContent,
     useColorModeValue,
     Stack,
-    useColorMode,
     IconButton,
     useMediaQuery,
     useDisclosure,
     Link,
 } from "@chakra-ui/react";
-import {MoonIcon, SunIcon, HamburgerIcon} from "@chakra-ui/icons";
+import { HamburgerIcon} from "@chakra-ui/icons";
 import {useState} from "react";
 
 
 export default function Nav({color}) {
     const [scroll, setScroll] = useState(false);
-    const {colorMode, toggleColorMode} = useColorMode();
     const {isOpen, onOpen, onClose} = useDisclosure();
 
     const [isLargerThanMD] = useMediaQuery("(min-width: 48em)");
@@ -33,6 +31,12 @@ export default function Nav({color}) {
         const aboutSection = document.querySelector("#about");
         aboutSection.scrollIntoView({behavior: "smooth"});
     };
+
+    const scrollToEthics = () => {
+        const ethicsSection = document.querySelector("#ethics");
+        ethicsSection.scrollIntoView({behavior: "smooth"});
+    };
+
     const changeScroll = () =>
         document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
             ? setScroll(true)
@@ -57,7 +61,6 @@ export default function Nav({color}) {
                 <Link onClick={scrollToHero}>
                     <Text>BLACKLIGHT LABS</Text>
                 </Link>
-
                 <Flex alignItems={"center"}>
                     <Stack direction={"row"} spacing={4}>
                         {isLargerThanMD ? (
@@ -65,13 +68,14 @@ export default function Nav({color}) {
                                 <Button variant="ghost" onClick={scrollToAbout}>
                                     About
                                 </Button>
+                                <Button variant="ghost" onClick={scrollToEthics}>
+                                    Ethics
+                                </Button>
                             </>
                         ) : (
                             <></>
                         )}
-                        <Button onClick={toggleColorMode}>
-                            {colorMode === "light" ? <MoonIcon/> : <SunIcon/>}
-                        </Button>
+
 
                         {isLargerThanMD ? (
                             <></>
@@ -88,6 +92,9 @@ export default function Nav({color}) {
                                         <DrawerBody>
                                             <Button variant="ghost" onClick={scrollToAbout}>
                                                 About
+                                            </Button>
+                                            <Button variant="ghost" onClick={scrollToEthics}>
+                                                Ethics
                                             </Button>
                                         </DrawerBody>
                                     </DrawerContent>
